@@ -31146,7 +31146,7 @@ automountServiceAccountToken: true
 kind: ServiceAccount
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:default/prom-grafana
+    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:prom/prom-grafana
   labels:
     app.kubernetes.io/instance: prom
     app.kubernetes.io/managed-by: Helm
@@ -31154,13 +31154,13 @@ metadata:
     app.kubernetes.io/version: 10.4.1
     helm.sh/chart: grafana-7.3.11
   name: prom-grafana
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:default/prom-kube-state-metrics
+    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:prom/prom-kube-state-metrics
   labels:
     app.kubernetes.io/component: metrics
     app.kubernetes.io/instance: prom
@@ -31171,14 +31171,14 @@ metadata:
     helm.sh/chart: kube-state-metrics-5.19.0
     release: prom
   name: prom-kube-state-metrics
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 automountServiceAccountToken: true
 kind: ServiceAccount
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:default/prom-kube-prometheus-stack-alertmanager
+    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:prom/prom-kube-prometheus-stack-alertmanager
   labels:
     app: kube-prometheus-stack-alertmanager
     app.kubernetes.io/component: alertmanager
@@ -31191,14 +31191,14 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-alertmanager
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 automountServiceAccountToken: true
 kind: ServiceAccount
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:default/prom-kube-prometheus-stack-operator
+    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:prom/prom-kube-prometheus-stack-operator
   labels:
     app: kube-prometheus-stack-operator
     app.kubernetes.io/component: prometheus-operator
@@ -31211,14 +31211,14 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-operator
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 automountServiceAccountToken: true
 kind: ServiceAccount
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:default/prom-kube-prometheus-stack-prometheus
+    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:prom/prom-kube-prometheus-stack-prometheus
   labels:
     app: kube-prometheus-stack-prometheus
     app.kubernetes.io/component: prometheus
@@ -31231,7 +31231,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-prometheus
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31241,7 +31241,7 @@ data:
 kind: Secret
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/Secret:default/prom-grafana
+    argocd.argoproj.io/tracking-id: prom:/Secret:prom/prom-grafana
   labels:
     app.kubernetes.io/instance: prom
     app.kubernetes.io/managed-by: Helm
@@ -31249,7 +31249,7 @@ metadata:
     app.kubernetes.io/version: 10.4.1
     helm.sh/chart: grafana-7.3.11
   name: prom-grafana
-  namespace: default
+  namespace: prom
 type: Opaque
 ---
 apiVersion: v1
@@ -31258,7 +31258,7 @@ data:
 kind: Secret
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/Secret:default/alertmanager-prom-kube-prometheus-stack-alertmanager
+    argocd.argoproj.io/tracking-id: prom:/Secret:prom/alertmanager-prom-kube-prometheus-stack-alertmanager
   labels:
     app: kube-prometheus-stack-alertmanager
     app.kubernetes.io/instance: prom
@@ -31269,7 +31269,7 @@ metadata:
     heritage: Helm
     release: prom
   name: alertmanager-prom-kube-prometheus-stack-alertmanager
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31289,7 +31289,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-grafana-config-dashboards
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-grafana-config-dashboards
   labels:
     app.kubernetes.io/instance: prom
     app.kubernetes.io/managed-by: Helm
@@ -31297,7 +31297,7 @@ metadata:
     app.kubernetes.io/version: 10.4.1
     helm.sh/chart: grafana-7.3.11
   name: prom-grafana-config-dashboards
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31318,7 +31318,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-grafana
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-grafana
   labels:
     app.kubernetes.io/instance: prom
     app.kubernetes.io/managed-by: Helm
@@ -31326,7 +31326,7 @@ metadata:
     app.kubernetes.io/version: 10.4.1
     helm.sh/chart: grafana-7.3.11
   name: prom-grafana
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31336,7 +31336,7 @@ data:
     - name: Prometheus
       type: prometheus
       uid: prometheus
-      url: http://prom-kube-prometheus-stack-prometheus.default:9090/
+      url: http://prom-kube-prometheus-stack-prometheus.prom:9090/
       access: proxy
       isDefault: true
       jsonData:
@@ -31345,7 +31345,7 @@ data:
     - name: Alertmanager
       type: alertmanager
       uid: alertmanager
-      url: http://prom-kube-prometheus-stack-alertmanager.default:9093/
+      url: http://prom-kube-prometheus-stack-alertmanager.prom:9093/
       access: proxy
       jsonData:
         handleGrafanaManagedAlerts: false
@@ -31353,7 +31353,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-grafana-datasource
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-grafana-datasource
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31365,7 +31365,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-grafana-datasource
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31373,7 +31373,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-alertmanager-overview
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-alertmanager-overview
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31385,7 +31385,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-alertmanager-overview
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31393,7 +31393,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-apiserver
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-apiserver
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31405,7 +31405,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-apiserver
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31413,7 +31413,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-cluster-total
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-cluster-total
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31425,7 +31425,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-cluster-total
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31433,7 +31433,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-controller-manager
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-controller-manager
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31445,7 +31445,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-controller-manager
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31453,7 +31453,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-etcd
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-etcd
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31465,7 +31465,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-etcd
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31473,7 +31473,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-grafana-overview
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-grafana-overview
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31485,7 +31485,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-grafana-overview
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31493,7 +31493,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-k8s-coredns
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-k8s-coredns
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31505,7 +31505,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s-coredns
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31513,7 +31513,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-k8s-resources-cluster
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-k8s-resources-cluster
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31525,7 +31525,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s-resources-cluster
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31533,7 +31533,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-k8s-resources-multicluster
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-k8s-resources-multicluster
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31545,7 +31545,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s-resources-multicluster
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31553,7 +31553,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-k8s-resources-namespace
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-k8s-resources-namespace
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31565,7 +31565,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s-resources-namespace
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31573,7 +31573,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-k8s-resources-node
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-k8s-resources-node
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31585,7 +31585,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s-resources-node
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31593,7 +31593,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-k8s-resources-pod
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-k8s-resources-pod
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31605,7 +31605,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s-resources-pod
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31613,7 +31613,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-k8s-resources-workload
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-k8s-resources-workload
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31625,7 +31625,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s-resources-workload
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31633,7 +31633,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-k8s-resources-workloads-namespace
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-k8s-resources-workloads-namespace
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31645,7 +31645,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s-resources-workloads-namespace
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31653,7 +31653,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-kubelet
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-kubelet
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31665,7 +31665,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kubelet
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31673,7 +31673,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-namespace-by-pod
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-namespace-by-pod
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31685,7 +31685,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-namespace-by-pod
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31693,7 +31693,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-namespace-by-workload
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-namespace-by-workload
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31705,7 +31705,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-namespace-by-workload
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31713,7 +31713,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-persistentvolumesusage
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-persistentvolumesusage
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31725,7 +31725,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-persistentvolumesusage
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31733,7 +31733,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-pod-total
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-pod-total
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31745,7 +31745,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-pod-total
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31753,7 +31753,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-prometheus
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-prometheus
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31765,7 +31765,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-prometheus
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31773,7 +31773,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-proxy
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-proxy
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31785,7 +31785,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-proxy
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31793,7 +31793,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-scheduler
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-scheduler
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31805,7 +31805,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-scheduler
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -31813,7 +31813,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-kube-prometheus-stack-workload-total
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-kube-prometheus-stack-workload-total
   labels:
     app: kube-prometheus-stack-grafana
     app.kubernetes.io/instance: prom
@@ -31825,7 +31825,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-workload-total
-  namespace: default
+  namespace: prom
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -32237,7 +32237,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: prom-grafana
-    namespace: default
+    namespace: prom
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -32261,7 +32261,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: prom-kube-state-metrics
-    namespace: default
+    namespace: prom
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -32287,7 +32287,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: prom-kube-prometheus-stack-operator
-    namespace: default
+    namespace: prom
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -32311,13 +32311,13 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: prom-kube-prometheus-stack-prometheus
-    namespace: default
+    namespace: prom
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/Role:default/prom-grafana
+    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/Role:prom/prom-grafana
   labels:
     app.kubernetes.io/instance: prom
     app.kubernetes.io/managed-by: Helm
@@ -32325,14 +32325,14 @@ metadata:
     app.kubernetes.io/version: 10.4.1
     helm.sh/chart: grafana-7.3.11
   name: prom-grafana
-  namespace: default
+  namespace: prom
 rules: []
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/RoleBinding:default/prom-grafana
+    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/RoleBinding:prom/prom-grafana
   labels:
     app.kubernetes.io/instance: prom
     app.kubernetes.io/managed-by: Helm
@@ -32340,7 +32340,7 @@ metadata:
     app.kubernetes.io/version: 10.4.1
     helm.sh/chart: grafana-7.3.11
   name: prom-grafana
-  namespace: default
+  namespace: prom
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -32348,13 +32348,13 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: prom-grafana
-    namespace: default
+    namespace: prom
 ---
 apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/Service:default/prom-grafana
+    argocd.argoproj.io/tracking-id: prom:/Service:prom/prom-grafana
   labels:
     app.kubernetes.io/instance: prom
     app.kubernetes.io/managed-by: Helm
@@ -32362,7 +32362,7 @@ metadata:
     app.kubernetes.io/version: 10.4.1
     helm.sh/chart: grafana-7.3.11
   name: prom-grafana
-  namespace: default
+  namespace: prom
 spec:
   ports:
     - name: http-web
@@ -32378,7 +32378,7 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/Service:default/prom-kube-state-metrics
+    argocd.argoproj.io/tracking-id: prom:/Service:prom/prom-kube-state-metrics
     prometheus.io/scrape: "true"
   labels:
     app.kubernetes.io/component: metrics
@@ -32390,7 +32390,7 @@ metadata:
     helm.sh/chart: kube-state-metrics-5.19.0
     release: prom
   name: prom-kube-state-metrics
-  namespace: default
+  namespace: prom
 spec:
   ports:
     - name: http
@@ -32406,7 +32406,7 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/Service:default/prom-kube-prometheus-stack-alertmanager
+    argocd.argoproj.io/tracking-id: prom:/Service:prom/prom-kube-prometheus-stack-alertmanager
   labels:
     app: kube-prometheus-stack-alertmanager
     app.kubernetes.io/instance: prom
@@ -32418,7 +32418,7 @@ metadata:
     release: prom
     self-monitor: "true"
   name: prom-kube-prometheus-stack-alertmanager
-  namespace: default
+  namespace: prom
 spec:
   ports:
     - name: http-web
@@ -32578,7 +32578,7 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/Service:default/prom-kube-prometheus-stack-operator
+    argocd.argoproj.io/tracking-id: prom:/Service:prom/prom-kube-prometheus-stack-operator
   labels:
     app: kube-prometheus-stack-operator
     app.kubernetes.io/component: prometheus-operator
@@ -32591,7 +32591,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-operator
-  namespace: default
+  namespace: prom
 spec:
   ports:
     - name: https
@@ -32606,7 +32606,7 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/Service:default/prom-kube-prometheus-stack-prometheus
+    argocd.argoproj.io/tracking-id: prom:/Service:prom/prom-kube-prometheus-stack-prometheus
   labels:
     app: kube-prometheus-stack-prometheus
     app.kubernetes.io/instance: prom
@@ -32618,7 +32618,7 @@ metadata:
     release: prom
     self-monitor: "true"
   name: prom-kube-prometheus-stack-prometheus
-  namespace: default
+  namespace: prom
 spec:
   ports:
     - name: http-web
@@ -32639,7 +32639,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:apps/Deployment:default/prom-grafana
+    argocd.argoproj.io/tracking-id: prom:apps/Deployment:prom/prom-grafana
   labels:
     app.kubernetes.io/instance: prom
     app.kubernetes.io/managed-by: Helm
@@ -32647,7 +32647,7 @@ metadata:
     app.kubernetes.io/version: 10.4.1
     helm.sh/chart: grafana-7.3.11
   name: prom-grafana
-  namespace: default
+  namespace: prom
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -32840,7 +32840,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:apps/Deployment:default/prom-kube-state-metrics
+    argocd.argoproj.io/tracking-id: prom:apps/Deployment:prom/prom-kube-state-metrics
   labels:
     app.kubernetes.io/component: metrics
     app.kubernetes.io/instance: prom
@@ -32851,7 +32851,7 @@ metadata:
     helm.sh/chart: kube-state-metrics-5.19.0
     release: prom
   name: prom-kube-state-metrics
-  namespace: default
+  namespace: prom
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -32925,7 +32925,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:apps/Deployment:default/prom-kube-prometheus-stack-operator
+    argocd.argoproj.io/tracking-id: prom:apps/Deployment:prom/prom-kube-prometheus-stack-operator
   labels:
     app: kube-prometheus-stack-operator
     app.kubernetes.io/component: prometheus-operator
@@ -32938,7 +32938,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-operator
-  namespace: default
+  namespace: prom
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -33015,7 +33015,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: Alertmanager
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/Alertmanager:default/prom-kube-prometheus-stack-alertmanager
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/Alertmanager:prom/prom-kube-prometheus-stack-alertmanager
   labels:
     app: kube-prometheus-stack-alertmanager
     app.kubernetes.io/instance: prom
@@ -33026,12 +33026,12 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-alertmanager
-  namespace: default
+  namespace: prom
 spec:
   alertmanagerConfigNamespaceSelector: {}
   alertmanagerConfigSelector: {}
   automountServiceAccountToken: true
-  externalUrl: http://prom-kube-prometheus-stack-alertmanager.default:9093
+  externalUrl: http://prom-kube-prometheus-stack-alertmanager.prom:9093
   image: quay.io/prometheus/alertmanager:v0.27.0
   listenLocal: false
   logFormat: logfmt
@@ -33075,7 +33075,7 @@ webhooks:
     clientConfig:
       service:
         name: prom-kube-prometheus-stack-operator
-        namespace: default
+        namespace: prom
         path: /admission-prometheusrules/mutate
     failurePolicy: Ignore
     name: prometheusrulemutate.monitoring.coreos.com
@@ -33096,7 +33096,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/Prometheus:default/prom-kube-prometheus-stack-prometheus
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/Prometheus:prom/prom-kube-prometheus-stack-prometheus
   labels:
     app: kube-prometheus-stack-prometheus
     app.kubernetes.io/instance: prom
@@ -33107,17 +33107,17 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-prometheus
-  namespace: default
+  namespace: prom
 spec:
   alerting:
     alertmanagers:
       - apiVersion: v2
         name: prom-kube-prometheus-stack-alertmanager
-        namespace: default
+        namespace: prom
         pathPrefix: /
         port: http-web
   enableAdminAPI: false
-  externalUrl: http://prom-kube-prometheus-stack-prometheus.default:9090
+  externalUrl: http://prom-kube-prometheus-stack-prometheus.prom:9090
   hostNetwork: false
   image: quay.io/prometheus/prometheus:v2.52.0
   listenLocal: false
@@ -33166,7 +33166,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-alertmanager.rules
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-alertmanager.rules
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -33177,7 +33177,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-alertmanager.rules
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: alertmanager.rules
@@ -33190,7 +33190,7 @@ spec:
           expr: |-
             # Without max_over_time, failed scrapes could create false negatives, see
             # https://www.robustperception.io/alerting-on-gauges-in-prometheus-2-0 for details.
-            max_over_time(alertmanager_config_last_reload_successful{job="prom-kube-prometheus-stack-alertmanager",namespace="default"}[5m]) == 0
+            max_over_time(alertmanager_config_last_reload_successful{job="prom-kube-prometheus-stack-alertmanager",namespace="prom"}[5m]) == 0
           for: 10m
           labels:
             severity: critical
@@ -33202,9 +33202,9 @@ spec:
           expr: |-
             # Without max_over_time, failed scrapes could create false negatives, see
             # https://www.robustperception.io/alerting-on-gauges-in-prometheus-2-0 for details.
-              max_over_time(alertmanager_cluster_members{job="prom-kube-prometheus-stack-alertmanager",namespace="default"}[5m])
+              max_over_time(alertmanager_cluster_members{job="prom-kube-prometheus-stack-alertmanager",namespace="prom"}[5m])
             < on (namespace,service,cluster) group_left
-              count by (namespace,service,cluster) (max_over_time(alertmanager_cluster_members{job="prom-kube-prometheus-stack-alertmanager",namespace="default"}[5m]))
+              count by (namespace,service,cluster) (max_over_time(alertmanager_cluster_members{job="prom-kube-prometheus-stack-alertmanager",namespace="prom"}[5m]))
           for: 15m
           labels:
             severity: critical
@@ -33215,9 +33215,9 @@ spec:
             summary: An Alertmanager instance failed to send notifications.
           expr: |-
             (
-              rate(alertmanager_notifications_failed_total{job="prom-kube-prometheus-stack-alertmanager",namespace="default"}[5m])
+              rate(alertmanager_notifications_failed_total{job="prom-kube-prometheus-stack-alertmanager",namespace="prom"}[5m])
             /
-              ignoring (reason) group_left rate(alertmanager_notifications_total{job="prom-kube-prometheus-stack-alertmanager",namespace="default"}[5m])
+              ignoring (reason) group_left rate(alertmanager_notifications_total{job="prom-kube-prometheus-stack-alertmanager",namespace="prom"}[5m])
             )
             > 0.01
           for: 5m
@@ -33230,9 +33230,9 @@ spec:
             summary: All Alertmanager instances in a cluster failed to send notifications to a critical integration.
           expr: |-
             min by (namespace,service, integration) (
-              rate(alertmanager_notifications_failed_total{job="prom-kube-prometheus-stack-alertmanager",namespace="default", integration=~`.*`}[5m])
+              rate(alertmanager_notifications_failed_total{job="prom-kube-prometheus-stack-alertmanager",namespace="prom", integration=~`.*`}[5m])
             /
-              ignoring (reason) group_left rate(alertmanager_notifications_total{job="prom-kube-prometheus-stack-alertmanager",namespace="default", integration=~`.*`}[5m])
+              ignoring (reason) group_left rate(alertmanager_notifications_total{job="prom-kube-prometheus-stack-alertmanager",namespace="prom", integration=~`.*`}[5m])
             )
             > 0.01
           for: 5m
@@ -33245,9 +33245,9 @@ spec:
             summary: All Alertmanager instances in a cluster failed to send notifications to a non-critical integration.
           expr: |-
             min by (namespace,service, integration) (
-              rate(alertmanager_notifications_failed_total{job="prom-kube-prometheus-stack-alertmanager",namespace="default", integration!~`.*`}[5m])
+              rate(alertmanager_notifications_failed_total{job="prom-kube-prometheus-stack-alertmanager",namespace="prom", integration!~`.*`}[5m])
             /
-              ignoring (reason) group_left rate(alertmanager_notifications_total{job="prom-kube-prometheus-stack-alertmanager",namespace="default", integration!~`.*`}[5m])
+              ignoring (reason) group_left rate(alertmanager_notifications_total{job="prom-kube-prometheus-stack-alertmanager",namespace="prom", integration!~`.*`}[5m])
             )
             > 0.01
           for: 5m
@@ -33260,7 +33260,7 @@ spec:
             summary: Alertmanager instances within the same cluster have different configurations.
           expr: |-
             count by (namespace,service,cluster) (
-              count_values by (namespace,service,cluster) ("config_hash", alertmanager_config_hash{job="prom-kube-prometheus-stack-alertmanager",namespace="default"})
+              count_values by (namespace,service,cluster) ("config_hash", alertmanager_config_hash{job="prom-kube-prometheus-stack-alertmanager",namespace="prom"})
             )
             != 1
           for: 20m
@@ -33274,11 +33274,11 @@ spec:
           expr: |-
             (
               count by (namespace,service,cluster) (
-                avg_over_time(up{job="prom-kube-prometheus-stack-alertmanager",namespace="default"}[5m]) < 0.5
+                avg_over_time(up{job="prom-kube-prometheus-stack-alertmanager",namespace="prom"}[5m]) < 0.5
               )
             /
               count by (namespace,service,cluster) (
-                up{job="prom-kube-prometheus-stack-alertmanager",namespace="default"}
+                up{job="prom-kube-prometheus-stack-alertmanager",namespace="prom"}
               )
             )
             >= 0.5
@@ -33293,11 +33293,11 @@ spec:
           expr: |-
             (
               count by (namespace,service,cluster) (
-                changes(process_start_time_seconds{job="prom-kube-prometheus-stack-alertmanager",namespace="default"}[10m]) > 4
+                changes(process_start_time_seconds{job="prom-kube-prometheus-stack-alertmanager",namespace="prom"}[10m]) > 4
               )
             /
               count by (namespace,service,cluster) (
-                up{job="prom-kube-prometheus-stack-alertmanager",namespace="default"}
+                up{job="prom-kube-prometheus-stack-alertmanager",namespace="prom"}
               )
             )
             >= 0.5
@@ -33309,7 +33309,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-config-reloaders
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-config-reloaders
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -33320,7 +33320,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-config-reloaders
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: config-reloaders
@@ -33341,7 +33341,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-etcd
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-etcd
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -33352,7 +33352,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-etcd
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: etcd
@@ -33509,7 +33509,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-general.rules
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-general.rules
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -33520,7 +33520,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-general.rules
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: general.rules
@@ -33566,7 +33566,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-k8s.rules.container-cpu-usage-second
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-k8s.rules.container-cpu-usage-second
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -33577,7 +33577,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s.rules.container-cpu-usage-second
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: k8s.rules.container_cpu_usage_seconds_total
@@ -33594,7 +33594,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-k8s.rules.container-memory-cache
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-k8s.rules.container-memory-cache
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -33605,7 +33605,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s.rules.container-memory-cache
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: k8s.rules.container_memory_cache
@@ -33621,7 +33621,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-k8s.rules.container-memory-rss
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-k8s.rules.container-memory-rss
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -33632,7 +33632,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s.rules.container-memory-rss
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: k8s.rules.container_memory_rss
@@ -33648,7 +33648,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-k8s.rules.container-memory-swap
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-k8s.rules.container-memory-swap
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -33659,7 +33659,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s.rules.container-memory-swap
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: k8s.rules.container_memory_swap
@@ -33675,7 +33675,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-k8s.rules.container-memory-working-s
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-k8s.rules.container-memory-working-s
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -33686,7 +33686,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s.rules.container-memory-working-s
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: k8s.rules.container_memory_working_set_bytes
@@ -33702,7 +33702,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-k8s.rules.container-resource
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-k8s.rules.container-resource
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -33713,7 +33713,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s.rules.container-resource
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: k8s.rules.container_resource
@@ -33791,7 +33791,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-k8s.rules.pod-owner
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-k8s.rules.pod-owner
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -33802,7 +33802,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-k8s.rules.pod-owner
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: k8s.rules.pod_owner
@@ -33859,7 +33859,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kube-apiserver-availability.rules
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kube-apiserver-availability.rules
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -33870,7 +33870,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kube-apiserver-availability.rules
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - interval: 3m
@@ -33989,7 +33989,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kube-apiserver-burnrate.rules
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kube-apiserver-burnrate.rules
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -34000,7 +34000,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kube-apiserver-burnrate.rules
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kube-apiserver-burnrate.rules
@@ -34311,7 +34311,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kube-apiserver-histogram.rules
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kube-apiserver-histogram.rules
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -34322,7 +34322,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kube-apiserver-histogram.rules
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kube-apiserver-histogram.rules
@@ -34342,7 +34342,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kube-apiserver-slos
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kube-apiserver-slos
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -34353,7 +34353,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kube-apiserver-slos
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kube-apiserver-slos
@@ -34419,7 +34419,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kube-prometheus-general.rules
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kube-prometheus-general.rules
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -34430,7 +34430,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kube-prometheus-general.rules
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kube-prometheus-general.rules
@@ -34444,7 +34444,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kube-prometheus-node-recording.rules
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kube-prometheus-node-recording.rules
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -34455,7 +34455,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kube-prometheus-node-recording.rules
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kube-prometheus-node-recording.rules
@@ -34477,7 +34477,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kube-scheduler.rules
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kube-scheduler.rules
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -34488,7 +34488,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kube-scheduler.rules
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kube-scheduler.rules
@@ -34534,7 +34534,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kube-state-metrics
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kube-state-metrics
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -34545,7 +34545,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kube-state-metrics
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kube-state-metrics
@@ -34603,7 +34603,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kubelet.rules
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kubelet.rules
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -34614,7 +34614,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kubelet.rules
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kubelet.rules
@@ -34636,7 +34636,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kubernetes-apps
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kubernetes-apps
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -34647,7 +34647,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kubernetes-apps
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kubernetes-apps
@@ -34895,7 +34895,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kubernetes-resources
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kubernetes-resources
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -34906,7 +34906,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kubernetes-resources
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kubernetes-resources
@@ -35018,7 +35018,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kubernetes-storage
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kubernetes-storage
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -35029,7 +35029,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kubernetes-storage
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kubernetes-storage
@@ -35132,7 +35132,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kubernetes-system-apiserver
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kubernetes-system-apiserver
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -35143,7 +35143,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kubernetes-system-apiserver
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kubernetes-system-apiserver
@@ -35206,7 +35206,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kubernetes-system-controller-manager
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kubernetes-system-controller-manager
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -35217,7 +35217,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kubernetes-system-controller-manager
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kubernetes-system-controller-manager
@@ -35236,7 +35236,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kubernetes-system-kube-proxy
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kubernetes-system-kube-proxy
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -35247,7 +35247,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kubernetes-system-kube-proxy
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kubernetes-system-kube-proxy
@@ -35266,7 +35266,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kubernetes-system-kubelet
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kubernetes-system-kubelet
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -35277,7 +35277,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kubernetes-system-kubelet
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kubernetes-system-kubelet
@@ -35407,7 +35407,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kubernetes-system-scheduler
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kubernetes-system-scheduler
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -35418,7 +35418,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kubernetes-system-scheduler
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kubernetes-system-scheduler
@@ -35437,7 +35437,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-kubernetes-system
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-kubernetes-system
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -35448,7 +35448,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kubernetes-system
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: kubernetes-system
@@ -35480,7 +35480,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-node-exporter.rules
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-node-exporter.rules
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -35491,7 +35491,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-node-exporter.rules
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: node-exporter.rules
@@ -35563,7 +35563,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-node-exporter
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-node-exporter
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -35574,7 +35574,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-node-exporter
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: node-exporter
@@ -35884,7 +35884,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-node-network
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-node-network
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -35895,7 +35895,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-node-network
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: node-network
@@ -35914,7 +35914,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-node.rules
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-node.rules
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -35925,7 +35925,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-node.rules
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: node.rules
@@ -35971,7 +35971,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-prometheus-operator
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-prometheus-operator
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -35982,7 +35982,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-prometheus-operator
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: prometheus-operator
@@ -35992,7 +35992,7 @@ spec:
             description: Errors while performing List operations in controller {{$labels.controller}} in {{$labels.namespace}} namespace.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus-operator/prometheusoperatorlisterrors
             summary: Errors while performing list operations in controller.
-          expr: (sum by (cluster,controller,namespace) (rate(prometheus_operator_list_operations_failed_total{job="prom-kube-prometheus-stack-operator",namespace="default"}[10m])) / sum by (cluster,controller,namespace) (rate(prometheus_operator_list_operations_total{job="prom-kube-prometheus-stack-operator",namespace="default"}[10m]))) > 0.4
+          expr: (sum by (cluster,controller,namespace) (rate(prometheus_operator_list_operations_failed_total{job="prom-kube-prometheus-stack-operator",namespace="prom"}[10m])) / sum by (cluster,controller,namespace) (rate(prometheus_operator_list_operations_total{job="prom-kube-prometheus-stack-operator",namespace="prom"}[10m]))) > 0.4
           for: 15m
           labels:
             severity: warning
@@ -36001,7 +36001,7 @@ spec:
             description: Errors while performing watch operations in controller {{$labels.controller}} in {{$labels.namespace}} namespace.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus-operator/prometheusoperatorwatcherrors
             summary: Errors while performing watch operations in controller.
-          expr: (sum by (cluster,controller,namespace) (rate(prometheus_operator_watch_operations_failed_total{job="prom-kube-prometheus-stack-operator",namespace="default"}[5m])) / sum by (cluster,controller,namespace) (rate(prometheus_operator_watch_operations_total{job="prom-kube-prometheus-stack-operator",namespace="default"}[5m]))) > 0.4
+          expr: (sum by (cluster,controller,namespace) (rate(prometheus_operator_watch_operations_failed_total{job="prom-kube-prometheus-stack-operator",namespace="prom"}[5m])) / sum by (cluster,controller,namespace) (rate(prometheus_operator_watch_operations_total{job="prom-kube-prometheus-stack-operator",namespace="prom"}[5m]))) > 0.4
           for: 15m
           labels:
             severity: warning
@@ -36010,7 +36010,7 @@ spec:
             description: Controller {{ $labels.controller }} in {{ $labels.namespace }} namespace fails to reconcile {{ $value }} objects.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus-operator/prometheusoperatorsyncfailed
             summary: Last controller reconciliation failed
-          expr: min_over_time(prometheus_operator_syncs{status="failed",job="prom-kube-prometheus-stack-operator",namespace="default"}[5m]) > 0
+          expr: min_over_time(prometheus_operator_syncs{status="failed",job="prom-kube-prometheus-stack-operator",namespace="prom"}[5m]) > 0
           for: 10m
           labels:
             severity: warning
@@ -36019,7 +36019,7 @@ spec:
             description: '{{ $value | humanizePercentage }} of reconciling operations failed for {{ $labels.controller }} controller in {{ $labels.namespace }} namespace.'
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus-operator/prometheusoperatorreconcileerrors
             summary: Errors while reconciling objects.
-          expr: (sum by (cluster,controller,namespace) (rate(prometheus_operator_reconcile_errors_total{job="prom-kube-prometheus-stack-operator",namespace="default"}[5m]))) / (sum by (cluster,controller,namespace) (rate(prometheus_operator_reconcile_operations_total{job="prom-kube-prometheus-stack-operator",namespace="default"}[5m]))) > 0.1
+          expr: (sum by (cluster,controller,namespace) (rate(prometheus_operator_reconcile_errors_total{job="prom-kube-prometheus-stack-operator",namespace="prom"}[5m]))) / (sum by (cluster,controller,namespace) (rate(prometheus_operator_reconcile_operations_total{job="prom-kube-prometheus-stack-operator",namespace="prom"}[5m]))) > 0.1
           for: 10m
           labels:
             severity: warning
@@ -36028,7 +36028,7 @@ spec:
             description: '{{ $value | humanizePercentage }} of status update operations failed for {{ $labels.controller }} controller in {{ $labels.namespace }} namespace.'
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus-operator/prometheusoperatorstatusupdateerrors
             summary: Errors while updating objects status.
-          expr: (sum by (cluster,controller,namespace) (rate(prometheus_operator_status_update_errors_total{job="prom-kube-prometheus-stack-operator",namespace="default"}[5m]))) / (sum by (cluster,controller,namespace) (rate(prometheus_operator_status_update_operations_total{job="prom-kube-prometheus-stack-operator",namespace="default"}[5m]))) > 0.1
+          expr: (sum by (cluster,controller,namespace) (rate(prometheus_operator_status_update_errors_total{job="prom-kube-prometheus-stack-operator",namespace="prom"}[5m]))) / (sum by (cluster,controller,namespace) (rate(prometheus_operator_status_update_operations_total{job="prom-kube-prometheus-stack-operator",namespace="prom"}[5m]))) > 0.1
           for: 10m
           labels:
             severity: warning
@@ -36037,7 +36037,7 @@ spec:
             description: Errors while reconciling Prometheus in {{ $labels.namespace }} Namespace.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus-operator/prometheusoperatornodelookuperrors
             summary: Errors while reconciling Prometheus.
-          expr: rate(prometheus_operator_node_address_lookup_errors_total{job="prom-kube-prometheus-stack-operator",namespace="default"}[5m]) > 0.1
+          expr: rate(prometheus_operator_node_address_lookup_errors_total{job="prom-kube-prometheus-stack-operator",namespace="prom"}[5m]) > 0.1
           for: 10m
           labels:
             severity: warning
@@ -36046,7 +36046,7 @@ spec:
             description: Prometheus operator in {{ $labels.namespace }} namespace isn't ready to reconcile {{ $labels.controller }} resources.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus-operator/prometheusoperatornotready
             summary: Prometheus operator not ready
-          expr: min by (cluster,controller,namespace) (max_over_time(prometheus_operator_ready{job="prom-kube-prometheus-stack-operator",namespace="default"}[5m]) == 0)
+          expr: min by (cluster,controller,namespace) (max_over_time(prometheus_operator_ready{job="prom-kube-prometheus-stack-operator",namespace="prom"}[5m]) == 0)
           for: 5m
           labels:
             severity: warning
@@ -36055,7 +36055,7 @@ spec:
             description: Prometheus operator in {{ $labels.namespace }} namespace rejected {{ printf "%0.0f" $value }} {{ $labels.controller }}/{{ $labels.resource }} resources.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus-operator/prometheusoperatorrejectedresources
             summary: Resources rejected by Prometheus operator
-          expr: min_over_time(prometheus_operator_managed_resources{state="rejected",job="prom-kube-prometheus-stack-operator",namespace="default"}[5m]) > 0
+          expr: min_over_time(prometheus_operator_managed_resources{state="rejected",job="prom-kube-prometheus-stack-operator",namespace="prom"}[5m]) > 0
           for: 5m
           labels:
             severity: warning
@@ -36064,7 +36064,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:default/prom-kube-prometheus-stack-prometheus
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/PrometheusRule:prom/prom-kube-prometheus-stack-prometheus
   labels:
     app: kube-prometheus-stack
     app.kubernetes.io/instance: prom
@@ -36075,7 +36075,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-prometheus
-  namespace: default
+  namespace: prom
 spec:
   groups:
     - name: prometheus
@@ -36088,7 +36088,7 @@ spec:
           expr: |-
             # Without max_over_time, failed scrapes could create false negatives, see
             # https://www.robustperception.io/alerting-on-gauges-in-prometheus-2-0 for details.
-            max_over_time(prometheus_config_last_reload_successful{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) == 0
+            max_over_time(prometheus_config_last_reload_successful{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) == 0
           for: 10m
           labels:
             severity: critical
@@ -36097,7 +36097,7 @@ spec:
             description: Prometheus {{$labels.namespace}}/{{$labels.pod}} has failed to refresh SD with mechanism {{$labels.mechanism}}.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheussdrefreshfailure
             summary: Failed Prometheus SD refresh.
-          expr: increase(prometheus_sd_refresh_failures_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[10m]) > 0
+          expr: increase(prometheus_sd_refresh_failures_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[10m]) > 0
           for: 20m
           labels:
             severity: warning
@@ -36110,9 +36110,9 @@ spec:
             # Without min_over_time, failed scrapes could create false negatives, see
             # https://www.robustperception.io/alerting-on-gauges-in-prometheus-2-0 for details.
             (
-              predict_linear(prometheus_notifications_queue_length{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m], 60 * 30)
+              predict_linear(prometheus_notifications_queue_length{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m], 60 * 30)
             >
-              min_over_time(prometheus_notifications_queue_capacity{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m])
+              min_over_time(prometheus_notifications_queue_capacity{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m])
             )
           for: 15m
           labels:
@@ -36124,9 +36124,9 @@ spec:
             summary: Prometheus has encountered more than 1% errors sending alerts to a specific Alertmanager.
           expr: |-
             (
-              rate(prometheus_notifications_errors_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m])
+              rate(prometheus_notifications_errors_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m])
             /
-              rate(prometheus_notifications_sent_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m])
+              rate(prometheus_notifications_sent_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m])
             )
             * 100
             > 1
@@ -36141,7 +36141,7 @@ spec:
           expr: |-
             # Without max_over_time, failed scrapes could create false negatives, see
             # https://www.robustperception.io/alerting-on-gauges-in-prometheus-2-0 for details.
-            max_over_time(prometheus_notifications_alertmanagers_discovered{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) < 1
+            max_over_time(prometheus_notifications_alertmanagers_discovered{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) < 1
           for: 10m
           labels:
             severity: warning
@@ -36150,7 +36150,7 @@ spec:
             description: Prometheus {{$labels.namespace}}/{{$labels.pod}} has detected {{$value | humanize}} reload failures over the last 3h.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheustsdbreloadsfailing
             summary: Prometheus has issues reloading blocks from disk.
-          expr: increase(prometheus_tsdb_reloads_failures_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[3h]) > 0
+          expr: increase(prometheus_tsdb_reloads_failures_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[3h]) > 0
           for: 4h
           labels:
             severity: warning
@@ -36159,7 +36159,7 @@ spec:
             description: Prometheus {{$labels.namespace}}/{{$labels.pod}} has detected {{$value | humanize}} compaction failures over the last 3h.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheustsdbcompactionsfailing
             summary: Prometheus has issues compacting blocks.
-          expr: increase(prometheus_tsdb_compactions_failed_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[3h]) > 0
+          expr: increase(prometheus_tsdb_compactions_failed_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[3h]) > 0
           for: 4h
           labels:
             severity: warning
@@ -36170,12 +36170,12 @@ spec:
             summary: Prometheus is not ingesting samples.
           expr: |-
             (
-              sum without(type) (rate(prometheus_tsdb_head_samples_appended_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m])) <= 0
+              sum without(type) (rate(prometheus_tsdb_head_samples_appended_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m])) <= 0
             and
               (
-                sum without(scrape_job) (prometheus_target_metadata_cache_entries{job="prom-kube-prometheus-stack-prometheus",namespace="default"}) > 0
+                sum without(scrape_job) (prometheus_target_metadata_cache_entries{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}) > 0
               or
-                sum without(rule_group) (prometheus_rule_group_rules{job="prom-kube-prometheus-stack-prometheus",namespace="default"}) > 0
+                sum without(rule_group) (prometheus_rule_group_rules{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}) > 0
               )
             )
           for: 10m
@@ -36186,7 +36186,7 @@ spec:
             description: Prometheus {{$labels.namespace}}/{{$labels.pod}} is dropping {{ printf "%.4g" $value  }} samples/s with different values but duplicated timestamp.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusduplicatetimestamps
             summary: Prometheus is dropping samples with duplicate timestamps.
-          expr: rate(prometheus_target_scrapes_sample_duplicate_timestamp_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) > 0
+          expr: rate(prometheus_target_scrapes_sample_duplicate_timestamp_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) > 0
           for: 10m
           labels:
             severity: warning
@@ -36195,7 +36195,7 @@ spec:
             description: Prometheus {{$labels.namespace}}/{{$labels.pod}} is dropping {{ printf "%.4g" $value  }} samples/s with timestamps arriving out of order.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusoutofordertimestamps
             summary: Prometheus drops samples with out-of-order timestamps.
-          expr: rate(prometheus_target_scrapes_sample_out_of_order_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) > 0
+          expr: rate(prometheus_target_scrapes_sample_out_of_order_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) > 0
           for: 10m
           labels:
             severity: warning
@@ -36206,12 +36206,12 @@ spec:
             summary: Prometheus fails to send samples to remote storage.
           expr: |-
             (
-              (rate(prometheus_remote_storage_failed_samples_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) or rate(prometheus_remote_storage_samples_failed_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]))
+              (rate(prometheus_remote_storage_failed_samples_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) or rate(prometheus_remote_storage_samples_failed_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]))
             /
               (
-                (rate(prometheus_remote_storage_failed_samples_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) or rate(prometheus_remote_storage_samples_failed_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]))
+                (rate(prometheus_remote_storage_failed_samples_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) or rate(prometheus_remote_storage_samples_failed_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]))
               +
-                (rate(prometheus_remote_storage_succeeded_samples_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) or rate(prometheus_remote_storage_samples_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]))
+                (rate(prometheus_remote_storage_succeeded_samples_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) or rate(prometheus_remote_storage_samples_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]))
               )
             )
             * 100
@@ -36228,9 +36228,9 @@ spec:
             # Without max_over_time, failed scrapes could create false negatives, see
             # https://www.robustperception.io/alerting-on-gauges-in-prometheus-2-0 for details.
             (
-              max_over_time(prometheus_remote_storage_highest_timestamp_in_seconds{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m])
+              max_over_time(prometheus_remote_storage_highest_timestamp_in_seconds{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m])
             - ignoring(remote_name, url) group_right
-              max_over_time(prometheus_remote_storage_queue_highest_sent_timestamp_seconds{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m])
+              max_over_time(prometheus_remote_storage_queue_highest_sent_timestamp_seconds{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m])
             )
             > 120
           for: 15m
@@ -36238,16 +36238,16 @@ spec:
             severity: critical
         - alert: PrometheusRemoteWriteDesiredShards
           annotations:
-            description: Prometheus {{$labels.namespace}}/{{$labels.pod}} remote write desired shards calculation wants to run {{ $value }} shards for queue {{ $labels.remote_name}}:{{ $labels.url }}, which is more than the max of {{ printf `prometheus_remote_storage_shards_max{instance="%s",job="prom-kube-prometheus-stack-prometheus",namespace="default"}` $labels.instance | query | first | value }}.
+            description: Prometheus {{$labels.namespace}}/{{$labels.pod}} remote write desired shards calculation wants to run {{ $value }} shards for queue {{ $labels.remote_name}}:{{ $labels.url }}, which is more than the max of {{ printf `prometheus_remote_storage_shards_max{instance="%s",job="prom-kube-prometheus-stack-prometheus",namespace="prom"}` $labels.instance | query | first | value }}.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusremotewritedesiredshards
             summary: Prometheus remote write desired shards calculation wants to run more than configured max shards.
           expr: |-
             # Without max_over_time, failed scrapes could create false negatives, see
             # https://www.robustperception.io/alerting-on-gauges-in-prometheus-2-0 for details.
             (
-              max_over_time(prometheus_remote_storage_shards_desired{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m])
+              max_over_time(prometheus_remote_storage_shards_desired{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m])
             >
-              max_over_time(prometheus_remote_storage_shards_max{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m])
+              max_over_time(prometheus_remote_storage_shards_max{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m])
             )
           for: 15m
           labels:
@@ -36257,7 +36257,7 @@ spec:
             description: Prometheus {{$labels.namespace}}/{{$labels.pod}} has failed to evaluate {{ printf "%.0f" $value }} rules in the last 5m.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusrulefailures
             summary: Prometheus is failing rule evaluations.
-          expr: increase(prometheus_rule_evaluation_failures_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) > 0
+          expr: increase(prometheus_rule_evaluation_failures_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) > 0
           for: 15m
           labels:
             severity: critical
@@ -36266,7 +36266,7 @@ spec:
             description: Prometheus {{$labels.namespace}}/{{$labels.pod}} has missed {{ printf "%.0f" $value }} rule group evaluations in the last 5m.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusmissingruleevaluations
             summary: Prometheus is missing rule evaluations due to slow rule group evaluation.
-          expr: increase(prometheus_rule_group_iterations_missed_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) > 0
+          expr: increase(prometheus_rule_group_iterations_missed_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) > 0
           for: 15m
           labels:
             severity: warning
@@ -36275,7 +36275,7 @@ spec:
             description: Prometheus {{$labels.namespace}}/{{$labels.pod}} has dropped {{ printf "%.0f" $value }} targets because the number of targets exceeded the configured target_limit.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheustargetlimithit
             summary: Prometheus has dropped targets because some scrape configs have exceeded the targets limit.
-          expr: increase(prometheus_target_scrape_pool_exceeded_target_limit_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) > 0
+          expr: increase(prometheus_target_scrape_pool_exceeded_target_limit_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) > 0
           for: 15m
           labels:
             severity: warning
@@ -36284,7 +36284,7 @@ spec:
             description: Prometheus {{$labels.namespace}}/{{$labels.pod}} has dropped {{ printf "%.0f" $value }} targets because some samples exceeded the configured label_limit, label_name_length_limit or label_value_length_limit.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheuslabellimithit
             summary: Prometheus has dropped targets because some scrape configs have exceeded the labels limit.
-          expr: increase(prometheus_target_scrape_pool_exceeded_label_limits_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) > 0
+          expr: increase(prometheus_target_scrape_pool_exceeded_label_limits_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) > 0
           for: 15m
           labels:
             severity: warning
@@ -36293,7 +36293,7 @@ spec:
             description: Prometheus {{$labels.namespace}}/{{$labels.pod}} has failed {{ printf "%.0f" $value }} scrapes in the last 5m because some targets exceeded the configured body_size_limit.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusscrapebodysizelimithit
             summary: Prometheus has dropped some targets that exceeded body size limit.
-          expr: increase(prometheus_target_scrapes_exceeded_body_size_limit_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) > 0
+          expr: increase(prometheus_target_scrapes_exceeded_body_size_limit_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) > 0
           for: 15m
           labels:
             severity: warning
@@ -36302,7 +36302,7 @@ spec:
             description: Prometheus {{$labels.namespace}}/{{$labels.pod}} has failed {{ printf "%.0f" $value }} scrapes in the last 5m because some targets exceeded the configured sample_limit.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheusscrapesamplelimithit
             summary: Prometheus has failed scrapes that have exceeded the configured sample limit.
-          expr: increase(prometheus_target_scrapes_exceeded_sample_limit_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) > 0
+          expr: increase(prometheus_target_scrapes_exceeded_sample_limit_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) > 0
           for: 15m
           labels:
             severity: warning
@@ -36311,7 +36311,7 @@ spec:
             description: '{{ printf "%.0f" $value }} targets in Prometheus {{$labels.namespace}}/{{$labels.pod}} have failed to sync because invalid configuration was supplied.'
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheustargetsyncfailure
             summary: Prometheus has failed to sync targets.
-          expr: increase(prometheus_target_sync_failed_total{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[30m]) > 0
+          expr: increase(prometheus_target_sync_failed_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[30m]) > 0
           for: 5m
           labels:
             severity: critical
@@ -36320,7 +36320,7 @@ spec:
             description: Prometheus {{$labels.namespace}}/{{$labels.pod}} query API has less than 20% available capacity in its query engine for the last 15 minutes.
             runbook_url: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheushighqueryload
             summary: Prometheus is reaching its maximum capacity serving concurrent requests.
-          expr: avg_over_time(prometheus_engine_queries{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) / max_over_time(prometheus_engine_queries_concurrent_max{job="prom-kube-prometheus-stack-prometheus",namespace="default"}[5m]) > 0.8
+          expr: avg_over_time(prometheus_engine_queries{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) / max_over_time(prometheus_engine_queries_concurrent_max{job="prom-kube-prometheus-stack-prometheus",namespace="prom"}[5m]) > 0.8
           for: 15m
           labels:
             severity: warning
@@ -36331,9 +36331,9 @@ spec:
             summary: Prometheus encounters more than 3% errors sending alerts to any Alertmanager.
           expr: |-
             min without (alertmanager) (
-              rate(prometheus_notifications_errors_total{job="prom-kube-prometheus-stack-prometheus",namespace="default",alertmanager!~``}[5m])
+              rate(prometheus_notifications_errors_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom",alertmanager!~``}[5m])
             /
-              rate(prometheus_notifications_sent_total{job="prom-kube-prometheus-stack-prometheus",namespace="default",alertmanager!~``}[5m])
+              rate(prometheus_notifications_sent_total{job="prom-kube-prometheus-stack-prometheus",namespace="prom",alertmanager!~``}[5m])
             )
             * 100
             > 3
@@ -36345,7 +36345,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:default/prom-grafana
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:prom/prom-grafana
   labels:
     app.kubernetes.io/instance: prom
     app.kubernetes.io/managed-by: Helm
@@ -36353,7 +36353,7 @@ metadata:
     app.kubernetes.io/version: 10.4.1
     helm.sh/chart: grafana-7.3.11
   name: prom-grafana
-  namespace: default
+  namespace: prom
 spec:
   endpoints:
     - honorLabels: true
@@ -36364,7 +36364,7 @@ spec:
   jobLabel: prom
   namespaceSelector:
     matchNames:
-      - default
+      - prom
   selector:
     matchLabels:
       app.kubernetes.io/instance: prom
@@ -36374,7 +36374,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:default/prom-kube-state-metrics
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:prom/prom-kube-state-metrics
   labels:
     app.kubernetes.io/component: metrics
     app.kubernetes.io/instance: prom
@@ -36385,7 +36385,7 @@ metadata:
     helm.sh/chart: kube-state-metrics-5.19.0
     release: prom
   name: prom-kube-state-metrics
-  namespace: default
+  namespace: prom
 spec:
   endpoints:
     - honorLabels: true
@@ -36400,7 +36400,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:default/prom-kube-prometheus-stack-alertmanager
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:prom/prom-kube-prometheus-stack-alertmanager
   labels:
     app: kube-prometheus-stack-alertmanager
     app.kubernetes.io/instance: prom
@@ -36411,7 +36411,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-alertmanager
-  namespace: default
+  namespace: prom
 spec:
   endpoints:
     - enableHttp2: true
@@ -36421,7 +36421,7 @@ spec:
       port: reloader-web
   namespaceSelector:
     matchNames:
-      - default
+      - prom
   selector:
     matchLabels:
       app: kube-prometheus-stack-alertmanager
@@ -36432,7 +36432,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:default/prom-kube-prometheus-stack-coredns
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:prom/prom-kube-prometheus-stack-coredns
   labels:
     app: kube-prometheus-stack-coredns
     app.kubernetes.io/instance: prom
@@ -36443,7 +36443,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-coredns
-  namespace: default
+  namespace: prom
 spec:
   endpoints:
     - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
@@ -36461,7 +36461,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:default/prom-kube-prometheus-stack-apiserver
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:prom/prom-kube-prometheus-stack-apiserver
   labels:
     app: kube-prometheus-stack-apiserver
     app.kubernetes.io/instance: prom
@@ -36472,7 +36472,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-apiserver
-  namespace: default
+  namespace: prom
 spec:
   endpoints:
     - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
@@ -36501,7 +36501,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:default/prom-kube-prometheus-stack-kube-controller-manager
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:prom/prom-kube-prometheus-stack-kube-controller-manager
   labels:
     app: kube-prometheus-stack-kube-controller-manager
     app.kubernetes.io/instance: prom
@@ -36512,7 +36512,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kube-controller-manager
-  namespace: default
+  namespace: prom
 spec:
   endpoints:
     - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
@@ -36534,7 +36534,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:default/prom-kube-prometheus-stack-kube-etcd
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:prom/prom-kube-prometheus-stack-kube-etcd
   labels:
     app: kube-prometheus-stack-kube-etcd
     app.kubernetes.io/instance: prom
@@ -36545,7 +36545,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kube-etcd
-  namespace: default
+  namespace: prom
 spec:
   endpoints:
     - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
@@ -36563,7 +36563,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:default/prom-kube-prometheus-stack-kube-proxy
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:prom/prom-kube-prometheus-stack-kube-proxy
   labels:
     app: kube-prometheus-stack-kube-proxy
     app.kubernetes.io/instance: prom
@@ -36574,7 +36574,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kube-proxy
-  namespace: default
+  namespace: prom
 spec:
   endpoints:
     - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
@@ -36592,7 +36592,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:default/prom-kube-prometheus-stack-kube-scheduler
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:prom/prom-kube-prometheus-stack-kube-scheduler
   labels:
     app: kube-prometheus-stack-kube-scheduler
     app.kubernetes.io/instance: prom
@@ -36603,7 +36603,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kube-scheduler
-  namespace: default
+  namespace: prom
 spec:
   endpoints:
     - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
@@ -36625,7 +36625,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:default/prom-kube-prometheus-stack-kubelet
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:prom/prom-kube-prometheus-stack-kubelet
   labels:
     app: kube-prometheus-stack-kubelet
     app.kubernetes.io/instance: prom
@@ -36636,7 +36636,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-kubelet
-  namespace: default
+  namespace: prom
 spec:
   attachMetadata:
     node: false
@@ -36721,7 +36721,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:default/prom-kube-prometheus-stack-operator
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:prom/prom-kube-prometheus-stack-operator
   labels:
     app: kube-prometheus-stack-operator
     app.kubernetes.io/component: prometheus-operator
@@ -36734,7 +36734,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-operator
-  namespace: default
+  namespace: prom
 spec:
   endpoints:
     - honorLabels: true
@@ -36749,7 +36749,7 @@ spec:
         serverName: prom-kube-prometheus-stack-operator
   namespaceSelector:
     matchNames:
-      - default
+      - prom
   selector:
     matchLabels:
       app: kube-prometheus-stack-operator
@@ -36759,7 +36759,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:default/prom-kube-prometheus-stack-prometheus
+    argocd.argoproj.io/tracking-id: prom:monitoring.coreos.com/ServiceMonitor:prom/prom-kube-prometheus-stack-prometheus
   labels:
     app: kube-prometheus-stack-prometheus
     app.kubernetes.io/instance: prom
@@ -36770,7 +36770,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-prometheus
-  namespace: default
+  namespace: prom
 spec:
   endpoints:
     - path: /metrics
@@ -36779,7 +36779,7 @@ spec:
       port: reloader-web
   namespaceSelector:
     matchNames:
-      - default
+      - prom
   selector:
     matchLabels:
       app: kube-prometheus-stack-prometheus
@@ -36810,7 +36810,7 @@ webhooks:
     clientConfig:
       service:
         name: prom-kube-prometheus-stack-operator
-        namespace: default
+        namespace: prom
         path: /admission-prometheusrules/validate
     failurePolicy: Ignore
     name: prometheusrulemutate.monitoring.coreos.com
@@ -36831,7 +36831,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:default/prom-grafana-test
+    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:prom/prom-grafana-test
     helm.sh/hook: test-success
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
   labels:
@@ -36841,14 +36841,14 @@ metadata:
     app.kubernetes.io/version: 10.4.1
     helm.sh/chart: grafana-7.3.11
   name: prom-grafana-test
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 automountServiceAccountToken: true
 kind: ServiceAccount
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:default/prom-kube-prometheus-stack-admission
+    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:prom/prom-kube-prometheus-stack-admission
     helm.sh/hook: pre-install,pre-upgrade,post-install,post-upgrade
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
   labels:
@@ -36863,7 +36863,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-admission
-  namespace: default
+  namespace: prom
 ---
 apiVersion: v1
 data:
@@ -36877,7 +36877,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ConfigMap:default/prom-grafana-test
+    argocd.argoproj.io/tracking-id: prom:/ConfigMap:prom/prom-grafana-test
     helm.sh/hook: test-success
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
   labels:
@@ -36887,7 +36887,7 @@ metadata:
     app.kubernetes.io/version: 10.4.1
     helm.sh/chart: grafana-7.3.11
   name: prom-grafana-test
-  namespace: default
+  namespace: prom
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -36944,13 +36944,13 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: prom-kube-prometheus-stack-admission
-    namespace: default
+    namespace: prom
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/Role:default/prom-kube-prometheus-stack-admission
+    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/Role:prom/prom-kube-prometheus-stack-admission
     helm.sh/hook: pre-install,pre-upgrade,post-install,post-upgrade
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
   labels:
@@ -36965,7 +36965,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-admission
-  namespace: default
+  namespace: prom
 rules:
   - apiGroups:
       - ""
@@ -36979,7 +36979,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/RoleBinding:default/prom-kube-prometheus-stack-admission
+    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/RoleBinding:prom/prom-kube-prometheus-stack-admission
     helm.sh/hook: pre-install,pre-upgrade,post-install,post-upgrade
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
   labels:
@@ -36994,7 +36994,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-admission
-  namespace: default
+  namespace: prom
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -37002,13 +37002,13 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: prom-kube-prometheus-stack-admission
-    namespace: default
+    namespace: prom
 ---
 apiVersion: v1
 kind: Pod
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/Pod:default/prom-grafana-test
+    argocd.argoproj.io/tracking-id: prom:/Pod:prom/prom-grafana-test
     helm.sh/hook: test-success
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
   labels:
@@ -37018,7 +37018,7 @@ metadata:
     app.kubernetes.io/version: 10.4.1
     helm.sh/chart: grafana-7.3.11
   name: prom-grafana-test
-  namespace: default
+  namespace: prom
 spec:
   containers:
     - command:
@@ -37043,7 +37043,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:batch/Job:default/prom-kube-prometheus-stack-admission-create
+    argocd.argoproj.io/tracking-id: prom:batch/Job:prom/prom-kube-prometheus-stack-admission-create
     helm.sh/hook: pre-install,pre-upgrade
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
   labels:
@@ -37058,7 +37058,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-admission-create
-  namespace: default
+  namespace: prom
 spec:
   template:
     metadata:
@@ -37078,8 +37078,8 @@ spec:
       containers:
         - args:
             - create
-            - --host=prom-kube-prometheus-stack-operator,prom-kube-prometheus-stack-operator.default.svc
-            - --namespace=default
+            - --host=prom-kube-prometheus-stack-operator,prom-kube-prometheus-stack-operator.prom.svc
+            - --namespace=prom
             - --secret-name=prom-kube-prometheus-stack-admission
           image: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
           imagePullPolicy: IfNotPresent
@@ -37105,7 +37105,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:batch/Job:default/prom-kube-prometheus-stack-admission-patch
+    argocd.argoproj.io/tracking-id: prom:batch/Job:prom/prom-kube-prometheus-stack-admission-patch
     helm.sh/hook: post-install,post-upgrade
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
   labels:
@@ -37120,7 +37120,7 @@ metadata:
     heritage: Helm
     release: prom
   name: prom-kube-prometheus-stack-admission-patch
-  namespace: default
+  namespace: prom
 spec:
   template:
     metadata:
@@ -37141,7 +37141,7 @@ spec:
         - args:
             - patch
             - --webhook-name=prom-kube-prometheus-stack-admission
-            - --namespace=default
+            - --namespace=prom
             - --secret-name=prom-kube-prometheus-stack-admission
             - --patch-failure-policy=
           image: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
