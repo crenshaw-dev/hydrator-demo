@@ -1,6 +1,6 @@
 {
   "repoURL": "https://github.com/crenshaw-dev/hydrator-demo",
-  "drySha": "cc2e15c28ff89508b12f9c1213e4d2c339c1431a",
+  "drySha": "94195f5ccbfb0cdeda7c55d89f5b262493f0e269",
   "commands": [
     "helm template . --name-template cm --namespace cm --include-crds"
   ]
