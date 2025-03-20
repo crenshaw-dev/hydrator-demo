@@ -7,6 +7,6 @@ To hydrate the manifests in this repository, run the following commands:
 
 git clone https://github.com/crenshaw-dev/hydrator-demo
 # cd into the cloned directory
-git checkout 8ec2b99bd51e041c11fbe51c6defef601b1313c1
+git checkout 7f1dccb30266d3e830c169a08f8848a8b92299cf
 helm template . --name-template prom --namespace cm --include-crds
 ```
