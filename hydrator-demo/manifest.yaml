@@ -3,16 +3,16 @@ automountServiceAccountToken: true
 kind: ServiceAccount
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:cm/prom-cert-manager-cainjector
+    argocd.argoproj.io/tracking-id: cm:/ServiceAccount:cm/cm-cert-manager-cainjector
   labels:
     app: cainjector
     app.kubernetes.io/component: cainjector
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cainjector
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-cainjector
+  name: cm-cert-manager-cainjector
   namespace: cm
 ---
 apiVersion: v1
@@ -20,16 +20,16 @@ automountServiceAccountToken: true
 kind: ServiceAccount
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:cm/prom-cert-manager
+    argocd.argoproj.io/tracking-id: cm:/ServiceAccount:cm/cm-cert-manager
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager
+  name: cm-cert-manager
   namespace: cm
 ---
 apiVersion: v1
@@ -37,16 +37,16 @@ automountServiceAccountToken: true
 kind: ServiceAccount
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:cm/prom-cert-manager-webhook
+    argocd.argoproj.io/tracking-id: cm:/ServiceAccount:cm/cm-cert-manager-webhook
   labels:
     app: webhook
     app.kubernetes.io/component: webhook
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: webhook
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-webhook
+  name: cm-cert-manager-webhook
   namespace: cm
 ---
 apiVersion: apiextensions.k8s.io/v1
@@ -54,7 +54,7 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app: cert-manager
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
@@ -252,7 +252,7 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app: cert-manager
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
@@ -697,7 +697,7 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app: cert-manager
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
@@ -1823,7 +1823,7 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app: cert-manager
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
@@ -3196,7 +3196,7 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app: cert-manager
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
@@ -4569,7 +4569,7 @@ kind: CustomResourceDefinition
 metadata:
   labels:
     app: cert-manager
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
@@ -4750,16 +4750,16 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRole:/prom-cert-manager-cainjector
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRole:/cm-cert-manager-cainjector
   labels:
     app: cainjector
     app.kubernetes.io/component: cainjector
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cainjector
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-cainjector
+  name: cm-cert-manager-cainjector
 rules:
   - apiGroups:
       - cert-manager.io
@@ -4822,16 +4822,16 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRole:/prom-cert-manager-controller-issuers
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRole:/cm-cert-manager-controller-issuers
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-issuers
+  name: cm-cert-manager-controller-issuers
 rules:
   - apiGroups:
       - cert-manager.io
@@ -4872,16 +4872,16 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRole:/prom-cert-manager-controller-clusterissuers
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRole:/cm-cert-manager-controller-clusterissuers
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-clusterissuers
+  name: cm-cert-manager-controller-clusterissuers
 rules:
   - apiGroups:
       - cert-manager.io
@@ -4922,16 +4922,16 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRole:/prom-cert-manager-controller-certificates
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRole:/cm-cert-manager-controller-certificates
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-certificates
+  name: cm-cert-manager-controller-certificates
 rules:
   - apiGroups:
       - cert-manager.io
@@ -4995,16 +4995,16 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRole:/prom-cert-manager-controller-orders
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRole:/cm-cert-manager-controller-orders
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-orders
+  name: cm-cert-manager-controller-orders
 rules:
   - apiGroups:
       - acme.cert-manager.io
@@ -5065,16 +5065,16 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRole:/prom-cert-manager-controller-challenges
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRole:/cm-cert-manager-controller-challenges
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-challenges
+  name: cm-cert-manager-controller-challenges
 rules:
   - apiGroups:
       - acme.cert-manager.io
@@ -5174,16 +5174,16 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRole:/prom-cert-manager-controller-ingress-shim
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRole:/cm-cert-manager-controller-ingress-shim
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-ingress-shim
+  name: cm-cert-manager-controller-ingress-shim
 rules:
   - apiGroups:
       - cert-manager.io
@@ -5247,17 +5247,17 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRole:/prom-cert-manager-cluster-view
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRole:/cm-cert-manager-cluster-view
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
     rbac.authorization.k8s.io/aggregate-to-cluster-reader: "true"
-  name: prom-cert-manager-cluster-view
+  name: cm-cert-manager-cluster-view
 rules:
   - apiGroups:
       - cert-manager.io
@@ -5272,11 +5272,11 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRole:/prom-cert-manager-view
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRole:/cm-cert-manager-view
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
@@ -5285,7 +5285,7 @@ metadata:
     rbac.authorization.k8s.io/aggregate-to-cluster-reader: "true"
     rbac.authorization.k8s.io/aggregate-to-edit: "true"
     rbac.authorization.k8s.io/aggregate-to-view: "true"
-  name: prom-cert-manager-view
+  name: cm-cert-manager-view
 rules:
   - apiGroups:
       - cert-manager.io
@@ -5311,18 +5311,18 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRole:/prom-cert-manager-edit
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRole:/cm-cert-manager-edit
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
     rbac.authorization.k8s.io/aggregate-to-admin: "true"
     rbac.authorization.k8s.io/aggregate-to-edit: "true"
-  name: prom-cert-manager-edit
+  name: cm-cert-manager-edit
 rules:
   - apiGroups:
       - cert-manager.io
@@ -5358,16 +5358,16 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRole:/prom-cert-manager-controller-approve:cert-manager-io
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRole:/cm-cert-manager-controller-approve:cert-manager-io
   labels:
     app: cert-manager
     app.kubernetes.io/component: cert-manager
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-approve:cert-manager-io
+  name: cm-cert-manager-controller-approve:cert-manager-io
 rules:
   - apiGroups:
       - cert-manager.io
@@ -5383,16 +5383,16 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRole:/prom-cert-manager-controller-certificatesigningrequests
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRole:/cm-cert-manager-controller-certificatesigningrequests
   labels:
     app: cert-manager
     app.kubernetes.io/component: cert-manager
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-certificatesigningrequests
+  name: cm-cert-manager-controller-certificatesigningrequests
 rules:
   - apiGroups:
       - certificates.k8s.io
@@ -5430,16 +5430,16 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRole:/prom-cert-manager-webhook:subjectaccessreviews
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRole:/cm-cert-manager-webhook:subjectaccessreviews
   labels:
     app: webhook
     app.kubernetes.io/component: webhook
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: webhook
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-webhook:subjectaccessreviews
+  name: cm-cert-manager-webhook:subjectaccessreviews
 rules:
   - apiGroups:
       - authorization.k8s.io
@@ -5452,247 +5452,247 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRoleBinding:/prom-cert-manager-cainjector
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRoleBinding:/cm-cert-manager-cainjector
   labels:
     app: cainjector
     app.kubernetes.io/component: cainjector
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cainjector
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-cainjector
+  name: cm-cert-manager-cainjector
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: prom-cert-manager-cainjector
+  name: cm-cert-manager-cainjector
 subjects:
   - kind: ServiceAccount
-    name: prom-cert-manager-cainjector
+    name: cm-cert-manager-cainjector
     namespace: cm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRoleBinding:/prom-cert-manager-controller-issuers
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRoleBinding:/cm-cert-manager-controller-issuers
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-issuers
+  name: cm-cert-manager-controller-issuers
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: prom-cert-manager-controller-issuers
+  name: cm-cert-manager-controller-issuers
 subjects:
   - kind: ServiceAccount
-    name: prom-cert-manager
+    name: cm-cert-manager
     namespace: cm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRoleBinding:/prom-cert-manager-controller-clusterissuers
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRoleBinding:/cm-cert-manager-controller-clusterissuers
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-clusterissuers
+  name: cm-cert-manager-controller-clusterissuers
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: prom-cert-manager-controller-clusterissuers
+  name: cm-cert-manager-controller-clusterissuers
 subjects:
   - kind: ServiceAccount
-    name: prom-cert-manager
+    name: cm-cert-manager
     namespace: cm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRoleBinding:/prom-cert-manager-controller-certificates
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRoleBinding:/cm-cert-manager-controller-certificates
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-certificates
+  name: cm-cert-manager-controller-certificates
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: prom-cert-manager-controller-certificates
+  name: cm-cert-manager-controller-certificates
 subjects:
   - kind: ServiceAccount
-    name: prom-cert-manager
+    name: cm-cert-manager
     namespace: cm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRoleBinding:/prom-cert-manager-controller-orders
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRoleBinding:/cm-cert-manager-controller-orders
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-orders
+  name: cm-cert-manager-controller-orders
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: prom-cert-manager-controller-orders
+  name: cm-cert-manager-controller-orders
 subjects:
   - kind: ServiceAccount
-    name: prom-cert-manager
+    name: cm-cert-manager
     namespace: cm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRoleBinding:/prom-cert-manager-controller-challenges
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRoleBinding:/cm-cert-manager-controller-challenges
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-challenges
+  name: cm-cert-manager-controller-challenges
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: prom-cert-manager-controller-challenges
+  name: cm-cert-manager-controller-challenges
 subjects:
   - kind: ServiceAccount
-    name: prom-cert-manager
+    name: cm-cert-manager
     namespace: cm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRoleBinding:/prom-cert-manager-controller-ingress-shim
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRoleBinding:/cm-cert-manager-controller-ingress-shim
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-ingress-shim
+  name: cm-cert-manager-controller-ingress-shim
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: prom-cert-manager-controller-ingress-shim
+  name: cm-cert-manager-controller-ingress-shim
 subjects:
   - kind: ServiceAccount
-    name: prom-cert-manager
+    name: cm-cert-manager
     namespace: cm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRoleBinding:/prom-cert-manager-controller-approve:cert-manager-io
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRoleBinding:/cm-cert-manager-controller-approve:cert-manager-io
   labels:
     app: cert-manager
     app.kubernetes.io/component: cert-manager
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-approve:cert-manager-io
+  name: cm-cert-manager-controller-approve:cert-manager-io
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: prom-cert-manager-controller-approve:cert-manager-io
+  name: cm-cert-manager-controller-approve:cert-manager-io
 subjects:
   - kind: ServiceAccount
-    name: prom-cert-manager
+    name: cm-cert-manager
     namespace: cm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRoleBinding:/prom-cert-manager-controller-certificatesigningrequests
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRoleBinding:/cm-cert-manager-controller-certificatesigningrequests
   labels:
     app: cert-manager
     app.kubernetes.io/component: cert-manager
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-controller-certificatesigningrequests
+  name: cm-cert-manager-controller-certificatesigningrequests
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: prom-cert-manager-controller-certificatesigningrequests
+  name: cm-cert-manager-controller-certificatesigningrequests
 subjects:
   - kind: ServiceAccount
-    name: prom-cert-manager
+    name: cm-cert-manager
     namespace: cm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/ClusterRoleBinding:/prom-cert-manager-webhook:subjectaccessreviews
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/ClusterRoleBinding:/cm-cert-manager-webhook:subjectaccessreviews
   labels:
     app: webhook
     app.kubernetes.io/component: webhook
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: webhook
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-webhook:subjectaccessreviews
+  name: cm-cert-manager-webhook:subjectaccessreviews
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: prom-cert-manager-webhook:subjectaccessreviews
+  name: cm-cert-manager-webhook:subjectaccessreviews
 subjects:
   - apiGroup: ""
     kind: ServiceAccount
-    name: prom-cert-manager-webhook
+    name: cm-cert-manager-webhook
     namespace: cm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/Role:kube-system/prom-cert-manager-cainjector:leaderelection
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/Role:kube-system/cm-cert-manager-cainjector:leaderelection
   labels:
     app: cainjector
     app.kubernetes.io/component: cainjector
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cainjector
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-cainjector:leaderelection
+  name: cm-cert-manager-cainjector:leaderelection
   namespace: kube-system
 rules:
   - apiGroups:
@@ -5717,16 +5717,16 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/Role:kube-system/prom-cert-manager:leaderelection
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/Role:kube-system/cm-cert-manager:leaderelection
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager:leaderelection
+  name: cm-cert-manager:leaderelection
   namespace: kube-system
 rules:
   - apiGroups:
@@ -5750,22 +5750,22 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/Role:cm/prom-cert-manager-webhook:dynamic-serving
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/Role:cm/cm-cert-manager-webhook:dynamic-serving
   labels:
     app: webhook
     app.kubernetes.io/component: webhook
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: webhook
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-webhook:dynamic-serving
+  name: cm-cert-manager-webhook:dynamic-serving
   namespace: cm
 rules:
   - apiGroups:
       - ""
     resourceNames:
-      - prom-cert-manager-webhook-ca
+      - cm-cert-manager-webhook-ca
     resources:
       - secrets
     verbs:
@@ -5784,90 +5784,90 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/RoleBinding:kube-system/prom-cert-manager-cainjector:leaderelection
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/RoleBinding:kube-system/cm-cert-manager-cainjector:leaderelection
   labels:
     app: cainjector
     app.kubernetes.io/component: cainjector
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cainjector
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-cainjector:leaderelection
+  name: cm-cert-manager-cainjector:leaderelection
   namespace: kube-system
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: prom-cert-manager-cainjector:leaderelection
+  name: cm-cert-manager-cainjector:leaderelection
 subjects:
   - kind: ServiceAccount
-    name: prom-cert-manager-cainjector
+    name: cm-cert-manager-cainjector
     namespace: cm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/RoleBinding:kube-system/prom-cert-manager:leaderelection
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/RoleBinding:kube-system/cm-cert-manager:leaderelection
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager:leaderelection
+  name: cm-cert-manager:leaderelection
   namespace: kube-system
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: prom-cert-manager:leaderelection
+  name: cm-cert-manager:leaderelection
 subjects:
   - apiGroup: ""
     kind: ServiceAccount
-    name: prom-cert-manager
+    name: cm-cert-manager
     namespace: cm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/RoleBinding:cm/prom-cert-manager-webhook:dynamic-serving
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/RoleBinding:cm/cm-cert-manager-webhook:dynamic-serving
   labels:
     app: webhook
     app.kubernetes.io/component: webhook
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: webhook
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-webhook:dynamic-serving
+  name: cm-cert-manager-webhook:dynamic-serving
   namespace: cm
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: prom-cert-manager-webhook:dynamic-serving
+  name: cm-cert-manager-webhook:dynamic-serving
 subjects:
   - apiGroup: ""
     kind: ServiceAccount
-    name: prom-cert-manager-webhook
+    name: cm-cert-manager-webhook
     namespace: cm
 ---
 apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/Service:cm/prom-cert-manager
+    argocd.argoproj.io/tracking-id: cm:/Service:cm/cm-cert-manager
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager
+  name: cm-cert-manager
   namespace: cm
 spec:
   ports:
@@ -5877,7 +5877,7 @@ spec:
       targetPort: 9402
   selector:
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/name: cert-manager
   type: ClusterIP
 ---
@@ -5885,16 +5885,16 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/Service:cm/prom-cert-manager-webhook
+    argocd.argoproj.io/tracking-id: cm:/Service:cm/cm-cert-manager-webhook
   labels:
     app: webhook
     app.kubernetes.io/component: webhook
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: webhook
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-webhook
+  name: cm-cert-manager-webhook
   namespace: cm
 spec:
   ports:
@@ -5904,7 +5904,7 @@ spec:
       targetPort: https
   selector:
     app.kubernetes.io/component: webhook
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/name: webhook
   type: ClusterIP
 ---
@@ -5912,16 +5912,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:apps/Deployment:cm/prom-cert-manager-cainjector
+    argocd.argoproj.io/tracking-id: cm:apps/Deployment:cm/cm-cert-manager-cainjector
   labels:
     app: cainjector
     app.kubernetes.io/component: cainjector
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cainjector
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-cainjector
+  name: cm-cert-manager-cainjector
   namespace: cm
 spec:
   replicas: 1
@@ -5929,14 +5929,14 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/component: cainjector
-      app.kubernetes.io/instance: prom
+      app.kubernetes.io/instance: cm
       app.kubernetes.io/name: cainjector
   template:
     metadata:
       labels:
         app: cainjector
         app.kubernetes.io/component: cainjector
-        app.kubernetes.io/instance: prom
+        app.kubernetes.io/instance: cm
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: cainjector
         app.kubernetes.io/version: v1.14.0
@@ -5967,22 +5967,22 @@ spec:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
-      serviceAccountName: prom-cert-manager-cainjector
+      serviceAccountName: cm-cert-manager-cainjector
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:apps/Deployment:cm/prom-cert-manager
+    argocd.argoproj.io/tracking-id: cm:apps/Deployment:cm/cm-cert-manager
   labels:
     app: cert-manager
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: cert-manager
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager
+  name: cm-cert-manager
   namespace: cm
 spec:
   replicas: 1
@@ -5990,7 +5990,7 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/component: controller
-      app.kubernetes.io/instance: prom
+      app.kubernetes.io/instance: cm
       app.kubernetes.io/name: cert-manager
   template:
     metadata:
@@ -6001,7 +6001,7 @@ spec:
       labels:
         app: cert-manager
         app.kubernetes.io/component: controller
-        app.kubernetes.io/instance: prom
+        app.kubernetes.io/instance: cm
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: cert-manager
         app.kubernetes.io/version: v1.14.0
@@ -6052,22 +6052,22 @@ spec:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
-      serviceAccountName: prom-cert-manager
+      serviceAccountName: cm-cert-manager
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:apps/Deployment:cm/prom-cert-manager-webhook
+    argocd.argoproj.io/tracking-id: cm:apps/Deployment:cm/cm-cert-manager-webhook
   labels:
     app: webhook
     app.kubernetes.io/component: webhook
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: webhook
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-webhook
+  name: cm-cert-manager-webhook
   namespace: cm
 spec:
   replicas: 1
@@ -6075,14 +6075,14 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/component: webhook
-      app.kubernetes.io/instance: prom
+      app.kubernetes.io/instance: cm
       app.kubernetes.io/name: webhook
   template:
     metadata:
       labels:
         app: webhook
         app.kubernetes.io/component: webhook
-        app.kubernetes.io/instance: prom
+        app.kubernetes.io/instance: cm
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: webhook
         app.kubernetes.io/version: v1.14.0
@@ -6093,10 +6093,10 @@ spec:
             - --v=2
             - --secure-port=10250
             - --dynamic-serving-ca-secret-namespace=$(POD_NAMESPACE)
-            - --dynamic-serving-ca-secret-name=prom-cert-manager-webhook-ca
-            - --dynamic-serving-dns-names=prom-cert-manager-webhook
-            - --dynamic-serving-dns-names=prom-cert-manager-webhook.$(POD_NAMESPACE)
-            - --dynamic-serving-dns-names=prom-cert-manager-webhook.$(POD_NAMESPACE).svc
+            - --dynamic-serving-ca-secret-name=cm-cert-manager-webhook-ca
+            - --dynamic-serving-dns-names=cm-cert-manager-webhook
+            - --dynamic-serving-dns-names=cm-cert-manager-webhook.$(POD_NAMESPACE)
+            - --dynamic-serving-dns-names=cm-cert-manager-webhook.$(POD_NAMESPACE).svc
           env:
             - name: POD_NAMESPACE
               valueFrom:
@@ -6145,29 +6145,29 @@ spec:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
-      serviceAccountName: prom-cert-manager-webhook
+      serviceAccountName: cm-cert-manager-webhook
 ---
 apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingWebhookConfiguration
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:admissionregistration.k8s.io/MutatingWebhookConfiguration:/prom-cert-manager-webhook
-    cert-manager.io/inject-ca-from-secret: cm/prom-cert-manager-webhook-ca
+    argocd.argoproj.io/tracking-id: cm:admissionregistration.k8s.io/MutatingWebhookConfiguration:/cm-cert-manager-webhook
+    cert-manager.io/inject-ca-from-secret: cm/cm-cert-manager-webhook-ca
   labels:
     app: webhook
     app.kubernetes.io/component: webhook
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: webhook
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-webhook
+  name: cm-cert-manager-webhook
 webhooks:
   - admissionReviewVersions:
       - v1
     clientConfig:
       service:
-        name: prom-cert-manager-webhook
+        name: cm-cert-manager-webhook
         namespace: cm
         path: /mutate
     failurePolicy: Fail
@@ -6189,23 +6189,23 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingWebhookConfiguration
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:admissionregistration.k8s.io/ValidatingWebhookConfiguration:/prom-cert-manager-webhook
-    cert-manager.io/inject-ca-from-secret: cm/prom-cert-manager-webhook-ca
+    argocd.argoproj.io/tracking-id: cm:admissionregistration.k8s.io/ValidatingWebhookConfiguration:/cm-cert-manager-webhook
+    cert-manager.io/inject-ca-from-secret: cm/cm-cert-manager-webhook-ca
   labels:
     app: webhook
     app.kubernetes.io/component: webhook
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: webhook
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-webhook
+  name: cm-cert-manager-webhook
 webhooks:
   - admissionReviewVersions:
       - v1
     clientConfig:
       service:
-        name: prom-cert-manager-webhook
+        name: cm-cert-manager-webhook
         namespace: cm
         path: /validate
     failurePolicy: Fail
@@ -6236,38 +6236,38 @@ automountServiceAccountToken: true
 kind: ServiceAccount
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:/ServiceAccount:cm/prom-cert-manager-startupapicheck
+    argocd.argoproj.io/tracking-id: cm:/ServiceAccount:cm/cm-cert-manager-startupapicheck
     helm.sh/hook: post-install
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
     helm.sh/hook-weight: "-5"
   labels:
     app: startupapicheck
     app.kubernetes.io/component: startupapicheck
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: startupapicheck
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-startupapicheck
+  name: cm-cert-manager-startupapicheck
   namespace: cm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/Role:cm/prom-cert-manager-startupapicheck:create-cert
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/Role:cm/cm-cert-manager-startupapicheck:create-cert
     helm.sh/hook: post-install
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
     helm.sh/hook-weight: "-5"
   labels:
     app: startupapicheck
     app.kubernetes.io/component: startupapicheck
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: startupapicheck
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-startupapicheck:create-cert
+  name: cm-cert-manager-startupapicheck:create-cert
   namespace: cm
 rules:
   - apiGroups:
@@ -6281,46 +6281,46 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:rbac.authorization.k8s.io/RoleBinding:cm/prom-cert-manager-startupapicheck:create-cert
+    argocd.argoproj.io/tracking-id: cm:rbac.authorization.k8s.io/RoleBinding:cm/cm-cert-manager-startupapicheck:create-cert
     helm.sh/hook: post-install
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
     helm.sh/hook-weight: "-5"
   labels:
     app: startupapicheck
     app.kubernetes.io/component: startupapicheck
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: startupapicheck
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-startupapicheck:create-cert
+  name: cm-cert-manager-startupapicheck:create-cert
   namespace: cm
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: prom-cert-manager-startupapicheck:create-cert
+  name: cm-cert-manager-startupapicheck:create-cert
 subjects:
   - kind: ServiceAccount
-    name: prom-cert-manager-startupapicheck
+    name: cm-cert-manager-startupapicheck
     namespace: cm
 ---
 apiVersion: batch/v1
 kind: Job
 metadata:
   annotations:
-    argocd.argoproj.io/tracking-id: prom:batch/Job:cm/prom-cert-manager-startupapicheck
+    argocd.argoproj.io/tracking-id: cm:batch/Job:cm/cm-cert-manager-startupapicheck
     helm.sh/hook: post-install
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
     helm.sh/hook-weight: "1"
   labels:
     app: startupapicheck
     app.kubernetes.io/component: startupapicheck
-    app.kubernetes.io/instance: prom
+    app.kubernetes.io/instance: cm
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: startupapicheck
     app.kubernetes.io/version: v1.14.0
     helm.sh/chart: cert-manager-v1.14.0
-  name: prom-cert-manager-startupapicheck
+  name: cm-cert-manager-startupapicheck
   namespace: cm
 spec:
   backoffLimit: 4
@@ -6329,7 +6329,7 @@ spec:
       labels:
         app: startupapicheck
         app.kubernetes.io/component: startupapicheck
-        app.kubernetes.io/instance: prom
+        app.kubernetes.io/instance: cm
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: startupapicheck
         app.kubernetes.io/version: v1.14.0
@@ -6358,4 +6358,4 @@ spec:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
-      serviceAccountName: prom-cert-manager-startupapicheck
+      serviceAccountName: cm-cert-manager-startupapicheck
